@@ -1,0 +1,13 @@
+service: tr-vote
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-2
+functions:
+  app:
+    handler: dist/app.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+plugins:
+  - serverless-offline
