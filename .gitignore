@@ -2,6 +2,7 @@
 /.build/
 /.serverless/
 /_warmup/
+/dist/
 
 .env*.local
 .env

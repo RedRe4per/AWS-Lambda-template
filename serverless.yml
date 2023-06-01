@@ -12,8 +12,7 @@ provider:
         - dynamodb:DeleteItem
         - dynamodb:Scan
         - dynamodb:Query
-      Resource:
-        - 'Fn::GetAtt': [MyDynamoDbTable, Arn]
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/*'
 functions:
   app:
     handler: dist/app.handler
@@ -22,18 +21,3 @@ functions:
       - http: ANY /{proxy+}
 plugins:
   - serverless-offline
-resources:
-  Resources:
-    MyDynamoDbTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: tr-vote
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
