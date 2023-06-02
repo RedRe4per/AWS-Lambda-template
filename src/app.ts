@@ -1,3 +1,4 @@
+require('module-alias/register');
 import express from 'express';
 import serverless from 'serverless-http';
 import cors from 'cors';

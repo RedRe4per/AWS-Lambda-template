@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
+require('module-alias/register');
 const express_1 = __importDefault(require("express"));
 const serverless_http_1 = __importDefault(require("serverless-http"));
 const cors_1 = __importDefault(require("cors"));
